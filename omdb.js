@@ -16,5 +16,14 @@ fetch(url + "t=Tangled")
 
 var updateMovies = function(movie){
   movies.push(movie);
-  document.getElementById("response").innerHTML = JSON.stringify(movies);
+  displayMovies();
+}
+
+var displayMovies = function(){
+  var movieDisplay = "";
+  for(var i = 0; i < movies.length; i++){
+    //console.log(i);
+    movieDisplay += "<img class='movie' id=" + movies[i]["Title"] + " src=" + movies[i]["Poster"] + ">"
+  }
+  document.getElementById("response").innerHTML = movieDisplay;
 }
